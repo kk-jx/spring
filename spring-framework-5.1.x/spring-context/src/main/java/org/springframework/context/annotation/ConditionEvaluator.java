@@ -83,6 +83,9 @@ class ConditionEvaluator {
 		}
 
 		if (phase == null) {
+			/**
+			 * 判断是否是资源类（被@Configuration，@Component，@ComponentScan,@Import,@ImportResource,@Bean注解修饰）的候选类
+			 */
 			if (metadata instanceof AnnotationMetadata &&
 					ConfigurationClassUtils.isConfigurationCandidate((AnnotationMetadata) metadata)) {
 				return shouldSkip(metadata, ConfigurationPhase.PARSE_CONFIGURATION);
@@ -122,7 +125,7 @@ class ConditionEvaluator {
 
 	private Condition getCondition(String conditionClassName, @Nullable ClassLoader classloader) {
 		Class<?> conditionClass = ClassUtils.resolveClassName(conditionClassName, classloader);
-		return (Condition) BeanUtils.instantiateClass(conditionClass);
+		return (Condition) BeanUtils.instantiateClass(conditionClass);//创建对象
 	}
 
 

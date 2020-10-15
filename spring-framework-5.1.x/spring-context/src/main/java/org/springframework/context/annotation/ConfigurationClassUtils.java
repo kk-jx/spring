@@ -132,6 +132,7 @@ abstract class ConfigurationClassUtils {
 	}
 
 	/**
+	 * 判断是否是资源类（被@Configuration，@Component，@ComponentScan,@Import,@ImportResource,@Bean注解修饰）的候选类
 	 * Check the given metadata for a configuration class candidate
 	 * (or nested component class declared within a configuration/component class).
 	 * @param metadata the metadata of the annotated class

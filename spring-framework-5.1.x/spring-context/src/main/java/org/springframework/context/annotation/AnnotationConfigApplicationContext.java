@@ -62,7 +62,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
-		//1.执行父类构造函数，主要是构建bena工厂环境
+		//1.执行父类构造函数，主要是构建bena工厂环境(org.springframework.beans.factory.support.DefaultListableBeanFactory)
 		//2.读取器，提供给外部扩展，提供bean注入到spring环境中，主要是增加了6个后置处理器
 		this.reader = new AnnotatedBeanDefinitionReader(this);
 		//3.扫描器，提供给外部

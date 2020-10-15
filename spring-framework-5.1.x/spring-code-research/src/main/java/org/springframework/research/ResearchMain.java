@@ -24,7 +24,11 @@ public class ResearchMain {
 
 	public static void main(String[] args) throws Exception {
 
+		/**
+		 * 在父类org.springframework.context.support.GenericApplicationContext#GenericApplicationContext()构造函数中创建了org.springframework.beans.factory.support.DefaultListableBeanFactory工厂对象
+		 */
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		Class[] cla = new Class[]{org.springframework.research.config.AppConfig.class};
 		context.register(org.springframework.research.config.AppConfig.class);
 		context.refresh();
 
