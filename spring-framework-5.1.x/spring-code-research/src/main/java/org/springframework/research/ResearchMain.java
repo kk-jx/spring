@@ -4,8 +4,10 @@ import org.python.google.common.hash.BloomFilter;
 import org.python.google.common.hash.Funnels;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.research.dao.IndexDao;
+import org.springframework.research.factoryBean.SqlSessionFactoryBean;
 import org.springframework.research.imports.GoodsManager;
 import org.springframework.research.imports.UserManager;
+import org.springframework.research.mybatis.SqlSessionFactory;
 
 import java.nio.charset.Charset;
 import java.text.ParseException;
@@ -35,6 +37,9 @@ public class ResearchMain {
 		IndexDao indexDao = (IndexDao) context.getBean("indexDao");
 		UserManager userManager = (UserManager) context.getBean("org.springframework.research.imports.UserManager");
 		GoodsManager goodsManager = (GoodsManager) context.getBean(GoodsManager.class);
+		SqlSessionFactoryBean sqlSessionFactoryBean = context.getBean(SqlSessionFactoryBean.class);
+		SqlSessionFactory sqlSessionFactory = (SqlSessionFactory)context.getBean(SqlSessionFactory.class);
+		sqlSessionFactory.define();
 		System.out.println("==============");
 	}
 

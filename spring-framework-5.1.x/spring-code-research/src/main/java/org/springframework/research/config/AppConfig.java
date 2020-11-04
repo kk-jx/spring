@@ -2,6 +2,7 @@ package org.springframework.research.config;
 
 import org.springframework.context.annotation.*;
 import org.springframework.research.dao.IndexDao;
+import org.springframework.research.factoryBean.SqlSessionFactoryBean;
 import org.springframework.research.imports.GoodsManager;
 import org.springframework.research.imports.MyImportSelector;
 
@@ -11,7 +12,7 @@ import org.springframework.research.imports.MyImportSelector;
  */
 @Configuration
 @ComponentScan(value = {"org.springframework.research"},basePackageClasses = {IndexDao.class})
-@Import({MyImportSelector.class, GoodsManager.class})
+@Import({MyImportSelector.class, GoodsManager.class, SqlSessionFactoryBean.class})
 @EnableAspectJAutoProxy
 public class AppConfig {
 
